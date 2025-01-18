@@ -3,9 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const handleShare = async () => {
-    const blob = await fetch(
-      "https://www.kawenlah.com/images/Kawenlah.svg"
-    ).then((r) => r.blob());
+    const blob = await fetch("/cuba_test.jpg").then((r) => r.blob());
     console.log(blob);
     if (navigator.share) {
       try {
@@ -13,13 +11,14 @@ export default function Home() {
 
         const data = {
           files: [
-            new File([blob], "file.svg", {
+            new File([blob], "file.jpg", {
               type: blob.type,
             }),
           ],
           title: "test",
           text: "huahua",
         };
+        console.log(data);
         await navigator.share(data);
         console.log("Content shared successfully!");
       } catch (error) {
