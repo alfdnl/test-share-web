@@ -13,7 +13,7 @@ export default function Home() {
 
         const data = {
           files: [
-            new File([blob], "file.png", {
+            new File([blob], "file.svg", {
               type: blob.type,
             }),
           ],
