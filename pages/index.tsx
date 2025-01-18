@@ -17,6 +17,7 @@ export default function Home() {
           ],
           title: "test",
           text: "huahua",
+          url: "https://www.kawenlah.com",
         };
         console.log(data);
         await navigator.share(data);
