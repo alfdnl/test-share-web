@@ -57,7 +57,7 @@ export default function Home() {
 
     // Simulate Instagram Story sharing (Instagram won't accept this directly, but you can test)
     console.log(objectURL);
-    window.location.href = `barcelona://create?text=text%20habibi&url=${objectURL}`;
+    window.location.href = `www.kawenlah.com`;
   };
   return (
     <div className={`flex items-center justify-center  min-h-screen `}>
