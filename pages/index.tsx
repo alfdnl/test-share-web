@@ -44,6 +44,21 @@ export default function Home() {
     console.log(objectURL);
     window.location.href = `instagram://story-camera?file=${objectURL}`;
   };
+
+  const postThreads = async () => {
+    // Fetch an example image from a URL
+    const blob = await fetch("/cuba_test.jpg").then((r) => r.blob());
+
+    // Create a File object (Instagram may require this format)
+    const file = new File([blob], "sample-image.png", { type: "image/png" });
+
+    // Create an object URL to test Instagram sharing
+    const objectURL = URL.createObjectURL(file);
+
+    // Simulate Instagram Story sharing (Instagram won't accept this directly, but you can test)
+    console.log(objectURL);
+    window.location.href = `barcelona://create?text=text%20habibi&url=${objectURL}`;
+  };
   return (
     <div className={`flex items-center justify-center  min-h-screen `}>
       <main className='flex flex-col justify-center items-center text-center'>
@@ -56,7 +71,9 @@ export default function Home() {
           priority
         />
         <div className='flex space-x-1 py-4'>
-          <Button variant={"outline"}>Threads</Button>
+          <Button onClick={postThreads} variant={"outline"}>
+            Threads
+          </Button>
           <Button onClick={postIGStory} variant={"outline"}>
             IgStory
           </Button>
